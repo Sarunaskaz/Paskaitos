@@ -32,14 +32,52 @@ function echoTekstas($tekstas)
     
     //1c. sukurkite funkciją kuri gražina skaičiaus PI pirmus 8 skaičius
 
-    function lastDgt($pirmi8){
+    function firstDgt($pirmi8){
         $rez = substr("$pirmi8", 0,9);
         return $rez;
     }
     $pi = 3.14159265359;
-    $spausdina = lastDgt($pi);
+    $spausdina = firstDgt($pi);
     echo $spausdina;
 
     echo '<h3>d)</h3>';
+    //  1d. sukurkite funkciją kuri gražina dviejų parametrų sąndaugą.
+
+    function sandauga($san1, $san2){
+        $sandaugRez = $san1 * $san2;
+        return $sandaugRez;
+    }
+    $pirmasSk = 10;
+    $antrasSk = 20;
+
+    $dviejuSandauga = sandauga($pirmasSk, $antrasSk);
+    echo $dviejuSandauga;
+
+    echo '<h3>e)</h3>';
+    //1e. sukurkite funkciją kuri apskaičiuoja skritulio PLOTĄ. ši funkcija priima 1 parametrą
+    //bei naudoja 1c. funkciją savo viduje, kad gautų PI reikšmę.
+
+    function skritulioS($r){
+        $pi = 3.14159265359;
+        $rezultatas = substr("$pi", 0,9);
+        
+        $radius = $r * $r;
+        $plotas = $rezultatas * $radius;
+        return $plotas;
+        
+    }
+    $skersmuo = 5;
+    $skaiciuojam = skritulioS($skersmuo);
+    echo $skaiciuojam;
+
+    echo '<h3>f)</h3>';
+
+     //1f. sukurkite funkciją kuri apskaičiuoja skritulio ILGĮ. ši funkcija priima 1 parametrą
+    //bei naudoja 1c. funkciją savo viduje, kad gautų PI reikšmę.
+
+
+  
+
+
 
     
