@@ -10,7 +10,7 @@
             <th>edit</th> 
             <th>delete</th> 
         </tr>
-<?php $count = 0; foreach ($_SESSION['lot'] as $cars) {  ?>
+<?php $count = 0; foreach (getData() as $cars) {  ?>
             <tr>
             <td> <?= ++$count."/".$cars['id']  ?> </td>
                 <td> <?= $cars['manufacturer']  ?> </td>

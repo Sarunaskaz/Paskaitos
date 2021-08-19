@@ -1,6 +1,9 @@
 <?php
+$red = '<a href="blue.php">http://localhost/Paskaitos/webMechanika/05/blue.php</a>';
 
-echo "<body style='background-color: orange '></body>";
+echo $red;
+echo "<body style='background-color: red '></body>";
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +15,6 @@ echo "<body style='background-color: orange '></body>";
     <title>Document</title>
 </head>
 <body>
-<a href = "http://localhost/Paskaitos/webMechanika/04/lemon.php">Lemon</a>
     
 </body>
 </html>

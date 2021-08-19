@@ -15,10 +15,6 @@ function echoTekstas($tekstas)
      //1b. sukurkite funkciją kuri priima vieną parametrą ir išspausdina tekstas "labas" +
      //tas paduotas kintamasis.
 
-     
-     //function tekstas()
-
-     
     $kazkas = 'Krabas';
     function duArg($var)
     {

@@ -1,5 +1,5 @@
 <?php
-include('./functions.php');
+include('./jsonData.php');
 
 if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])){
     $cars = edit();
@@ -88,11 +88,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
 
 <?php
     if(isset($_GET['show'])){
-        echo  '<a class="btn btn-dark" href="?hide">Paslėpti</a>';
+        echo  '<a class="btn btn-dark" href="?hide">Hide</a>';
         include('./table.php');
 
 }   else{ 
-        echo '<a class="btn btn-success" href="?show">rodyti</a>';
+        echo '<a class="btn btn-success" href="?show">Show</a>';
 }
 ?>
     
