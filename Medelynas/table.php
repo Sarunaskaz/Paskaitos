@@ -11,11 +11,12 @@
                 <td> <?= $plant['name']  ?> </td>
                 <td> <?= $plant['is_yearling']  ?> </td>
                 <td> <?= $plant['quantity']  ?> </td>
-                <td><a class="btn btn-success" href="?id=<?= $plant['id']  ?>">edit</a></td>
+                <td>
+                    <a class="btn btn-success" href="?edit=<?= $plant['id'] ?>">edit</a>
+                </td>
                 <td>
                     <form action="" method="post">
-                        <input type="hidden" name="id" value="<?=$plant['id']?>"  >
-                        <button class="btn btn-danger" type="submit">delete</button>
+                        <button class="btn btn-danger" type="submit" name="delete" value="<?=$plant['id']?>">delete</button>
                     </form>
                 </td>
             </tr>
