@@ -1,20 +1,20 @@
 <table class="table">
              <tr>
             <th>Id</th> 
-            <th>Manufacturer</th> 
-            <th>Model</th> 
-            <th>Year</th> 
+            <th>Augalo pavadinimas</th> 
+            <th>Is yearling</th> 
+            <th>Quantity</th> 
         </tr>
-<?php $count = 0; foreach (getData() as $medelynas) {  ?>
+<?php $count = 0; foreach (getData() as $plant) {  ?>
             <tr>
-            <td> <?= ++$count."/".$medelynas['id']  ?> </td>
-                <td> <?= $medelynas['manufacturer']  ?> </td>
-                <td> <?= $medelynas['model']  ?> </td>
-                <td> <?= $medelynas['year']  ?> </td>
-                <td><a class="btn btn-success" href="?id=<?= $medelynas['id']  ?>">edit</a></td>
+            <td> <?= ++$count."/".$plant['id']  ?> </td>
+                <td> <?= $plant['name']  ?> </td>
+                <td> <?= $plant['is_yearling']  ?> </td>
+                <td> <?= $plant['quantity']  ?> </td>
+                <td><a class="btn btn-success" href="?id=<?= $plant['id']  ?>">edit</a></td>
                 <td>
                     <form action="" method="post">
-                        <input type="hidden" name="id" value="<?=$medelynas['id']?>"  >
+                        <input type="hidden" name="id" value="<?=$plant['id']?>"  >
                         <button class="btn btn-danger" type="submit">delete</button>
                     </form>
                 </td>

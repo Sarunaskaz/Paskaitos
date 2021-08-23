@@ -1,8 +1,11 @@
 <?php
-include('./jsonData.php');
+include('./dataBase.php');
 
-if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])){
-    $medelynas = edit();
+$action = 'create';
+
+if (isset( $_GET['action'])){
+    $plant = find($_GET['action']);
+    $action = update();
 }
 
 if($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])){
@@ -41,31 +44,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
 <body>
     <form class="form" action="" method="POST">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Manufacturer</label>
+            <label class="col-sm-2 col-form-label" >Plant name</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="manufacturer" value="<?= (isset($medelynas))? $medelynas['manufacturer'] : "" ?>">
+                <input class="form-control" type="text" name="name" value="<?= (isset($plant))? $plant['name'] : "" ?>">
             </div>
          </div>
          <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Model</label>
+            <label class="col-sm-2 col-form-label" >Is yearling</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="model" value="<?= (isset($medelynas))? $medelynas['model'] : "" ?>">
+                <input class="form-control" type="text" name="is_yearling" value="<?= (isset($plant))? $plant['is_yearling'] : "" ?>">
             </div>
          </div>
          <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Year</label>
+            <label class="col-sm-2 col-form-label" >Quantity</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="year" value="<?= (isset($medelynas))? $medelynas['year'] : "" ?>">
+                <input class="form-control" type="text" name="quantity" value="<?= (isset($plant))? $plant['quantity'] : "" ?>">
             </div>
          </div>
          </div>
      </div>
-      <?php if(!isset($medelynas)){
-            echo '<button class="btn btn-primary" type="submit">Add car</button>';
+      <?php if(!isset($plant)){
+            echo '<button class="btn btn-primary" type="submit">Add plant</button>';
     }else{
             echo '
-            <input type="hidden" name="id" value="'. $medelynas['id'].' ">
-            <button class="btn btn-info" type="submit">Update car</button>';
+            <input type="hidden" name="id" value="'. $plant['id'].' ">
+            <button class="btn btn-info" type="submit">Update plant</button>';
     } ?>
 </form>
 
