@@ -1,33 +1,33 @@
 <?php
 include('./dataBase.php');
 
-$action = 'create';
+    if(isset($_POST['create'] )){
+        store();
+        header("location:./");
+        die;
+    }
 
-if (isset( $_GET['action'])){
-    $plant = find($_GET['action']);
-    $action = update();
-}
+    if(isset($_POST['update'] )){
+        update();
+        header("location:./");
+        die;
+    }
+    
+    if(isset($_POST['delete'] )){
+        destroy($_POST['delete']);
+        header("location:./");
+        die; 
+    }
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])){
-    store();
-    header("location:./");
-    die;
-}
+    $action = 'create';
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['manufacturer'])){
-    destroy();
-    header("location:./");
-    die; 
-}
+    if(isset($_GET['edit'] )){
+            $plant = find($_GET['edit']);
+            $action = 'update';
+    }
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
-    update();
-    header("location:./");
-    die;
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,11 +64,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
          </div>
      </div>
       <?php if(!isset($plant)){
-            echo '<button class="btn btn-primary" type="submit">Add plant</button>';
+            echo '<button class="btn btn-primary" name="create" type="submit">Add plant</button>';
     }else{
-            echo '
-            <input type="hidden" name="id" value="'. $plant['id'].' ">
-            <button class="btn btn-info" type="submit">Update plant</button>';
+            echo '<button class="btn btn-info" name="update" type="submit" value="'.$plant['id'].'" >Update plant</button>';
     } ?>
 </form>
 

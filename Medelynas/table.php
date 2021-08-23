@@ -5,7 +5,7 @@
             <th>Is yearling</th> 
             <th>Quantity</th> 
         </tr>
-<?php $count = 0; foreach (getData() as $plant) {  ?>
+<?php $count = 0; foreach (all() as $plant) {  ?>
             <tr>
             <td> <?= ++$count."/".$plant['id']  ?> </td>
                 <td> <?= $plant['name']  ?> </td>
